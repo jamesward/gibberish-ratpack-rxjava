@@ -1,0 +1,25 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.ratpack:ratpack-gradle:0.9.10"
+        classpath "com.github.jengelman.gradle.plugins:shadow:1.0.2"
+    }
+}
+
+apply plugin: "io.ratpack.ratpack-java"
+apply plugin: "com.github.johnrengelman.shadow"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile ratpack.dependency("rx")
+    compile "com.netflix.rxjava:rxjava-apache-http:0.20.6"
+}
+
+task stage {
+    dependsOn installApp
+}
