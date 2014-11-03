@@ -12,6 +12,7 @@ import rx.apache.http.ObservableHttp;
 import java.net.URI;
 
 
+// A fully Reactive handler that gets a random number then gets that many random words
 public class GibberishHandler implements Handler {
 
     final static URI RANDOM_NUMBER_URI = URI.create("http://randnum.herokuapp.com/");
