@@ -12,7 +12,7 @@ targetCompatibility = "1.8"
 
 dependencies {
     compile ratpack.dependency("rx")
-    compile "com.netflix.rxjava:rxjava-apache-http:0.20.6"
+    compile 'org.slf4j:slf4j-simple:1.7.7'
 }
 
 task stage {
