@@ -7,6 +7,9 @@ repositories {
     jcenter()
 }
 
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
 dependencies {
     compile ratpack.dependency("rx")
     compile "com.netflix.rxjava:rxjava-apache-http:0.20.6"
