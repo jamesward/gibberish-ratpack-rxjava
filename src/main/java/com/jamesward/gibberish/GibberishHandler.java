@@ -35,6 +35,6 @@ public class GibberishHandler implements Handler {
                                 .reduce((a, b) -> a + " " + b)
         );
 
-        RxRatpack.observe(RxRatpack.asPromiseSingle(words)).subscribe(context::render);
+        RxRatpack.asPromiseSingle(words).then(context::render);
     }
 }
