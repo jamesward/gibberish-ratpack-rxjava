@@ -1,15 +1,7 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "io.ratpack:ratpack-gradle:0.9.10"
-        classpath "com.github.jengelman.gradle.plugins:shadow:1.0.2"
-    }
+plugins {
+    id "io.ratpack.ratpack-java" version "0.9.10"
+    id "com.github.johnrengelman.shadow" version "1.0.2"
 }
-
-apply plugin: "io.ratpack.ratpack-java"
-apply plugin: "com.github.johnrengelman.shadow"
 
 repositories {
     jcenter()
