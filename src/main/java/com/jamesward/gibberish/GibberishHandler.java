@@ -22,14 +22,10 @@ public class GibberishHandler extends InjectionHandler {
             .map(Integer::valueOf)
             .flatMap(i ->
                     asPromiseSingle(
-                        forkAndJoin(context,
-                            forkOnNext(context, Observable.range(0, i))
-                                .flatMap(n ->
-                                        observe(httpClient.get(RANDOM_WORD_URI))
-                                            .map(r -> r.getBody().getText())
-                                )
-                                .reduce((a, b) -> a + " " + b)
-                        )
+                        Observable.range(0, i)
+                            .lift(forkOnNext(context))
+                            .flatMap(n -> observe(httpClient.get(RANDOM_WORD_URI).map(r -> r.getBody().getText())))
+                            .reduce((a, b) -> a + " " + b)
                     )
             ).then(context::render);
     }
